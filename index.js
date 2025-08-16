@@ -1,19 +1,16 @@
-document.getElementById("loginForm").addEventListener("submit", function (e) {
-  e.preventDefault(); // prevent page refresh
+const form = document.getElementById("loginForm");
 
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value.trim();
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
 
-  if (!email || !password) {
-    alert("Please fill in all fields.");
-    return;
-  }
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  const rememberMe = document.getElementById("rememberMe").checked;
 
-  // Example logic (can be replaced with real backend call)
+  // Simulate login
   if (email === "test@example.com" && password === "123456") {
-    alert("Login successful ✅ Redirecting to dashboard...");
-    window.location.href = "dashboard.html"; // example redirect
+    alert(`Login successful! Remember Me: ${rememberMe}`);
   } else {
-    alert("Invalid credentials ❌ Please try again.");
+    alert("Invalid email or password. Please try again.");
   }
 });
